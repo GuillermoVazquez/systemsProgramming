@@ -1,0 +1,30 @@
+#!/bin/bash 
+sudo apt-get update
+sudo apt-get install apcahe2
+sudo apt install gcc g++ make zip unzip mysql-server \
+        apache2 php php-cli libapache2-mod-php \
+        php-gd php-curl php-mysql php-json php-zip \
+        php-mcrypt php-gmp php-xml php-mbstring \
+        bsdmainutils ntp phpmyadmin libcgroup-dev \
+        linuxdoc-tools linuxdoc-tools-text \
+        groff texlive-latex-recommended texlive-latex-extra \
+        texlive-fonts-recommended texlive-lang-european
+sudo phpenmod json
+sudo apt install libcurl4-gnutls-dev libjsoncpp-dev libmagic-dev
+cd /
+cd usr/share
+sudo wget https://www.domjudge.org/releases/domjudge-5.3.2.tar.gz
+sudo tar -xvf domjudge-5.3.2.tar.gz
+cd domjudg-5.3.2
+sudo ./configure --prefix=/usr/share/dom --with-baseurl=BASEURL --with-domjudge-user=root
+sudo make all
+sudo make install-domserver
+sudo make install-judgehost
+sudo make install-docs
+cd ../dom
+sudo apt install dc
+cd domserver/bin
+sudo ./dj_setup_database  -r install
+sudo ln -s etc/apache.conf /etc/apache2/conf-available/domjudge.conf
+cd /
+cd etc/apache2.conf
