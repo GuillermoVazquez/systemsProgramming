@@ -11,6 +11,7 @@ sudo apt install gcc g++ make zip unzip mysql-server \
         texlive-fonts-recommended texlive-lang-european
 sudo phpenmod json
 sudo apt install libcurl4-gnutls-dev libjsoncpp-dev libmagic-dev
+cat apache.conf >> apache2.conf
 cd /
 cd usr/share
 sudo wget https://www.domjudge.org/releases/domjudge-5.3.2.tar.gz
@@ -26,5 +27,5 @@ sudo apt install dc
 cd domserver/bin
 sudo ./dj_setup_database  -r install
 sudo ln -s etc/apache.conf /etc/apache2/conf-available/domjudge.conf
-cd /
-cd etc/apache2.conf
+sudo service apache2ctl graceful
+sudo service apache2 reload
