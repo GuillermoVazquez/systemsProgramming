@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo wget https://raw.githubusercontent.com/GuillermoVazquez/systemsProgramming/master/apache.conf
 sudo apt-get update
-sudo apt-get install apcahe2
+sudo apt-get install apache2
 sudo apt install gcc g++ make zip unzip mysql-server \
         apache2 php php-cli libapache2-mod-php \
         php-gd php-curl php-mysql php-json php-zip \
