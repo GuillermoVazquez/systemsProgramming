@@ -27,8 +27,7 @@ sudo apt install dc
 cd domserver/bin
 sudo ./dj_setup_database  -r install
 sudo ln -s etc/apache.conf /etc/apache2/conf-available/domjudge.conf
-sudo su
 cd
 sudo cat apache.conf >> ../../etc/apache2/apache2.conf
-exit
 sudo service apache2 reload
+exit
