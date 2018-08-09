@@ -11,6 +11,10 @@ sudo apt install gcc g++ make zip unzip mysql-server \
         groff texlive-latex-recommended texlive-latex-extra \
         texlive-fonts-recommended texlive-lang-european
 sudo phpenmod json
+sudo apt install make sudo debootstrap libcgroup-dev \
+        php-cli php-curl php-json php-xml php-zip procps \
+        gcc g++ openjdk-8-jre-headless \
+        openjdk-8-jdk ghc fp-compiler
 sudo apt install libcurl4-gnutls-dev libjsoncpp-dev libmagic-dev
 cd /
 cd usr/share
