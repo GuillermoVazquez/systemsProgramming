@@ -32,11 +32,19 @@ cd domserver/bin
 sudo ./dj_setup_database  -r install
 sudo ln -s etc/apache.conf /etc/apache2/conf-available/domjudge.conf
 cd
+sudo su
 sudo cat apache.conf >> ../../etc/apache2/apache2.conf
 sudo service apache2 reload
 exit
 sudo useradd -d /nonexistent -g nogroup -s /bin/false domjudge-run
 sudo groupadd domjudge-run
+sudo apt update
+sudo apt upgrade
+cd /usr/share/dom/judgehost/etc
+sudo chmod 0440 sudoers-domjudge
+sudo mv sudoers-domjudge /etc/sudoers.d/
+sudo update-grub
+
 //copy sudoers-domjudge to sudoers os
 //update os grub
 //update etc/default/grub.d/big file
