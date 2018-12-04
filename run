@@ -45,8 +45,6 @@ sudo chmod 0440 sudoers-domjudge
 sudo mv sudoers-domjudge /etc/sudoers.d/
 sudo update-grub
 
-//copy sudoers-domjudge to sudoers os
-//update os grub
 //update etc/default/grub.d/big file
 //sudo update-grub
 //sudo reboot
