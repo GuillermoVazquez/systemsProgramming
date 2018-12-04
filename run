@@ -44,10 +44,18 @@ cd /usr/share/dom/judgehost/etc
 sudo chmod 0440 sudoers-domjudge
 sudo mv sudoers-domjudge /etc/sudoers.d/
 sudo update-grub
+cd /usr/share/dom/judgehost/bin 
+sudo ./dj_make_chroot
+cd etc/default/
+sudo sed -i 's/"console=tty1 console=ttyS0"/"quiet cgroup_enable=memory swapaccount=1"/g' grub
+sudo update-grub
+sudo reboot
 
-//update etc/default/grub.d/big file
-//sudo update-grub
-//sudo reboot
+cd /etc/default/grub.d
+sudo sed -i 's/"console=tty1 console=ttyS0 nvme.io_timeout=4294967295"/"quiet cgroup_enable=memory swapaccount=1"/g' 50-cloudimg-settings.cfg 
+sudo update-grub
+sudo reboot
+
 //check in /proc/cmdline
 //cd into dom judgehost bin /.create_cgroups
 //start judgedaemon
