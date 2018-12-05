@@ -56,6 +56,10 @@ sudo sed -i 's/"console=tty1 console=ttyS0 nvme.io_timeout=4294967295"/"quiet cg
 sudo update-grub
 sudo reboot
 
+cd usr/share/dom/judgehost/bin/
+sudo ./create_cgroups
+sudo ./judgedaemon
+
 //check in /proc/cmdline
 //cd into dom judgehost bin /.create_cgroups
 //start judgedaemon
